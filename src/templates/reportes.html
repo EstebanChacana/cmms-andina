@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h2>Reportes de falla</h2>
+<table>
+  <tr><th>ID</th><th>Equipo</th><th>Descripción</th><th>Criticidad</th><th>Estado</th><th>Foto</th></tr>
+  {% for r in reportes %}
+  <tr><td>{{ r.id }}</td><td>{{ r.codigo }} - {{ r.activo }}</td><td>{{ r.descripcion }}</td>
+      <td>{{ r.criticidad }}</td><td>{{ r.estado }}</td>
+      <td>{% if r.foto %}<img class="mini" src="{{ url_for('static', filename='fotos/' + r.foto) }}">{% endif %}</td></tr>
+  {% else %}
+  <tr><td colspan="6">Aún no hay reportes.</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

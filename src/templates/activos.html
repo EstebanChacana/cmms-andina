@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h2>Activos registrados (HU-001)</h2>
+<a class="btn" href="{{ url_for('activo_nuevo') }}">+ Registrar activo</a>
+<br><br>
+<table>
+  <tr><th>ID</th><th>Código</th><th>Nombre</th><th>Tipo</th><th>Ubicación</th><th>Criticidad</th></tr>
+  {% for a in activos %}
+  <tr><td>{{ a.id }}</td><td>{{ a.codigo }}</td><td>{{ a.nombre }}</td><td>{{ a.tipo }}</td>
+      <td>{{ a.ubicacion }}</td><td>{{ a.criticidad }}</td></tr>
+  {% else %}
+  <tr><td colspan="6">Aún no hay activos registrados.</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

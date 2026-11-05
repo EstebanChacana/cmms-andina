@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CMMS Andina</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f4f6f8; color: #222; }
+    header { background: #1f3a5f; color: #fff; padding: 14px 20px; }
+    header a { color: #fff; margin-right: 18px; text-decoration: none; font-weight: bold; }
+    main { max-width: 900px; margin: 20px auto; padding: 0 16px; }
+    table { width: 100%; border-collapse: collapse; background: #fff; }
+    th, td { padding: 10px; border-bottom: 1px solid #ddd; text-align: left; }
+    th { background: #e8edf3; }
+    label { display: block; margin-top: 12px; font-weight: bold; }
+    input, select, textarea { width: 100%; padding: 12px; font-size: 16px; box-sizing: border-box; }
+    button, .btn { display: inline-block; margin-top: 16px; padding: 14px 22px; font-size: 16px;
+      background: #1f3a5f; color: #fff; border: 0; border-radius: 6px; text-decoration: none; cursor: pointer; }
+    .msg { background: #dff0d8; padding: 10px; margin-bottom: 14px; border-radius: 4px; }
+    img.mini { height: 50px; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="{{ url_for('activos') }}">Activos</a>
+    <a href="{{ url_for('reportar') }}">Reportar falla</a>
+    <a href="{{ url_for('reportes') }}">Reportes</a>
+  </header>
+  <main>
+    {% with mensajes = get_flashed_messages() %}
+      {% for m in mensajes %}<div class="msg">{{ m }}</div>{% endfor %}
+    {% endwith %}
+    {% block contenido %}{% endblock %}
+  </main>
+</body>
+</html>

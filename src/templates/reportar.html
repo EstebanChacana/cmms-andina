@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h2>Reportar falla (HU-003a)</h2>
+<form method="post" enctype="multipart/form-data">
+  <label>Equipo</label>
+  <select name="activo_id" required>
+    {% for a in activos %}<option value="{{ a.id }}">{{ a.codigo }} - {{ a.nombre }}</option>{% endfor %}
+  </select>
+  <label>Reportado por</label>
+  <input name="reportado_por" required>
+  <label>Descripción de la falla</label>
+  <textarea name="descripcion" rows="4" required></textarea>
+  <label>Nivel de criticidad</label>
+  <select name="criticidad"><option>Alta</option><option selected>Media</option><option>Baja</option></select>
+  <label>Foto</label>
+  <input type="file" name="foto" accept="image/*" capture="environment">
+  <button type="submit">Enviar reporte</button>
+</form>
+{% endblock %}

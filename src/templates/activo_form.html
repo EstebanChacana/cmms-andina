@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h2>Registrar activo (HU-001)</h2>
+<form method="post">
+  <label>Código (ej: EXT-001)</label>
+  <input name="codigo" required>
+  <label>Nombre</label>
+  <input name="nombre" required>
+  <label>Tipo</label>
+  <select name="tipo">
+    <option>Extrusora</option><option>Inyectora</option><option>Compresor</option>
+    <option>Cinta transportadora</option><option>Molde / Matriz</option>
+    <option>Montacargas</option><option>Caldera</option>
+  </select>
+  <label>Marca</label>
+  <input name="marca">
+  <label>Modelo</label>
+  <input name="modelo">
+  <label>Ubicación</label>
+  <input name="ubicacion">
+  <label>Criticidad</label>
+  <select name="criticidad"><option>Alta</option><option selected>Media</option><option>Baja</option></select>
+  <button type="submit">Guardar</button>
+</form>
+{% endblock %}
